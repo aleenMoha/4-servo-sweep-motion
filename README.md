@@ -75,3 +75,45 @@ void loop() {
   servo4.write(90);
   while (true); // stop loop
 }
+```
+🤖 Humanoid Robot Walking Motion Algorithm
+This section explains the step-by-step logic used to execute walking motions in the humanoid robot using servo motors.
+
+Algorithm Overview
+The humanoid robot performs walking by coordinating leg servos to simulate natural steps. Each walking cycle consists of shifting weight, lifting and moving the swinging leg, placing it down, and repeating with the opposite leg, while maintaining balance.
+
+Step-by-Step Algorithm
+Initialization
+
+Set all leg and body servos to the neutral standing position.
+
+Ensure the robot is stable and balanced before starting.
+
+Walking Cycle (Repeat for each step):
+
+Shift Weight to Supporting Leg
+Slightly tilt the torso or shift hip servos to transfer the robot’s weight onto the supporting leg, ensuring stability.
+
+Lift Swinging Leg
+Bend the knee servo of the leg to be lifted to raise the foot by the desired step height.
+Adjust the hip servo to move the leg forward by the step length.
+Position the ankle servo to keep the foot parallel to the ground.
+
+Move Leg Forward and Place Down
+Straighten the knee servo as the leg extends forward.
+Lower the foot gradually until it touches the ground.
+
+Shift Weight to Newly Placed Leg
+Transfer the weight onto the leg that just landed by adjusting torso and hip servos.
+
+Repeat with Opposite Leg
+Perform the lifting and moving sequence on the other leg to complete a full walking step.
+
+Arm Movement for Balance (Optional)
+Swing the arms in opposition to the legs to help maintain balance and provide natural movement.
+
+Continuous Walking
+Repeat the walking cycle steps until the robot needs to stop.
+
+Stopping
+Return all servos to the neutral standing position and ensure the robot is stable.
