@@ -76,44 +76,47 @@ void loop() {
   while (true); // stop loop
 }
 ```
-🤖 Humanoid Robot Walking Motion Algorithm
-This section explains the step-by-step logic used to execute walking motions in the humanoid robot using servo motors.
+## 🤖 Humanoid Robot Walking Motion Algorithm
 
-Algorithm Overview
-The humanoid robot performs walking by coordinating leg servos to simulate natural steps. Each walking cycle consists of shifting weight, lifting and moving the swinging leg, placing it down, and repeating with the opposite leg, while maintaining balance.
+This section describes the step-by-step process used to make the humanoid robot walk using servo motors.
 
-Step-by-Step Algorithm
-Initialization
+### Initialization
+- Set all leg and body servos to neutral (standing) position.
+- Ensure the robot is stable and balanced.
 
-Set all leg and body servos to the neutral standing position.
+### Walking Cycle (Repeat for each step)
 
-Ensure the robot is stable and balanced before starting.
+1. **Shift Weight to Supporting Leg**  
+   - Adjust torso and hip servos to transfer weight onto the supporting leg.
+   - Stabilize the supporting leg firmly on the ground.
 
-Walking Cycle (Repeat for each step):
+2. **Lift Swinging Leg**  
+   - Bend the knee servo of the swinging leg to lift the foot by the desired step height.
+   - Move the hip servo forward by the step length.
+   - Adjust the ankle servo to keep the foot parallel to the ground.
 
-Shift Weight to Supporting Leg
-Slightly tilt the torso or shift hip servos to transfer the robot’s weight onto the supporting leg, ensuring stability.
+3. **Move Swinging Leg Forward and Place Down**  
+   - Extend the knee servo to straighten the leg forward.
+   - Gradually lower the foot until it touches the ground.
 
-Lift Swinging Leg
-Bend the knee servo of the leg to be lifted to raise the foot by the desired step height.
-Adjust the hip servo to move the leg forward by the step length.
-Position the ankle servo to keep the foot parallel to the ground.
+4. **Shift Weight to Newly Placed Leg**  
+   - Transfer weight onto the leg that just landed by adjusting torso and hip servos.
 
-Move Leg Forward and Place Down
-Straighten the knee servo as the leg extends forward.
-Lower the foot gradually until it touches the ground.
+5. **Repeat for Opposite Leg**  
+   - Perform the same lift, move, and place sequence for the opposite leg.
 
-Shift Weight to Newly Placed Leg
-Transfer the weight onto the leg that just landed by adjusting torso and hip servos.
+6. **Optional Arm Movement**  
+   - Swing arms opposite to the legs to help with balance and natural motion.
 
-Repeat with Opposite Leg
-Perform the lifting and moving sequence on the other leg to complete a full walking step.
+7. **Continuous Walking**  
+   - Repeat steps 1 to 6 continuously for sustained walking.
 
-Arm Movement for Balance (Optional)
-Swing the arms in opposition to the legs to help maintain balance and provide natural movement.
+### Stopping
+- Return all servos to the neutral standing position.
+- Ensure the robot is balanced and stable.
 
-Continuous Walking
-Repeat the walking cycle steps until the robot needs to stop.
+### Notes
+- Smooth and gradual servo movements are essential for realistic walking.
+- Sensor feedback (e.g., gyroscope) can be integrated for dynamic posture adjustments.
+- Step length, height, and speed can be tuned according to terrain and desired walking pace.
 
-Stopping
-Return all servos to the neutral standing position and ensure the robot is stable.
